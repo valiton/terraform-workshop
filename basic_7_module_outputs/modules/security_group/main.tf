@@ -1,5 +1,5 @@
 resource "aws_security_group" "group" {
-  name        = var.name
+  name = var.name
 
   ingress {
     from_port   = var.from_port

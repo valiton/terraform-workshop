@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "eu-central-1"
-}
-
 resource "aws_instance" "foo" {
   ami             = data.aws_ami.amazon_ecs_optimized.id
   instance_type   = var.instance_type

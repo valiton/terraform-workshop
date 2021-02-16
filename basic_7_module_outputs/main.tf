@@ -1,3 +1,6 @@
+provider "aws" {
+  region = "eu-central-1"
+}
 
 module "instance_one" {
   source = "./modules/ec2"
