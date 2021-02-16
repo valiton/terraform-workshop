@@ -7,7 +7,7 @@ module "instance_one" {
 
   name            = "my-instance-1"
   instance_type   = "t3.micro"
-  security_groups = [module.ssh_security_group.security_group_name]
+  security_groups = [module.http_security_group.security_group_name]
 }
 
 module "instance_two" {
@@ -15,13 +15,13 @@ module "instance_two" {
 
   name            = "my-instance-2"
   instance_type   = "t3.micro"
-  security_groups = [module.ssh_security_group.security_group_name]
+  security_groups = [module.http_security_group.security_group_name]
 }
 
-module "ssh_security_group" {
+module "http_security_group" {
   source = "./modules/security_group"
 
-  name      = "internal_access"
-  from_port = 22
-  to_port   = 22
+  name      = "http_access"
+  from_port = 80
+  to_port   = 80
 }
