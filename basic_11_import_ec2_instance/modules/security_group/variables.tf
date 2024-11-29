@@ -1,14 +1,14 @@
 variable "name" {
-  type = string
+  type        = string
   description = "Name of the security group"
 }
 
 variable "from_port" {
-  type = number
+  type        = number
   description = "First port in range to open"
 }
 
 variable "to_port" {
-  type = number
+  type        = number
   description = "Last port in range to open"
 }

@@ -1,6 +1,6 @@
 resource "openstack_compute_instance_v2" "basic_2" {
-  name            = "basic_2"
-  flavor_id       = "6bec5005-f3ed-4ea2-bd4a-57c3dffd1a56"
+  name      = "basic_2"
+  flavor_id = "6bec5005-f3ed-4ea2-bd4a-57c3dffd1a56"
 
   metadata = {
     Name = "Hello World"

@@ -14,8 +14,8 @@ resource "openstack_blockstorage_volume_v3" "basic_5" {
 }
 
 resource "openstack_compute_instance_v2" "basic_5" {
-  name            = "basic_5"
-  flavor_id       = "6bec5005-f3ed-4ea2-bd4a-57c3dffd1a56"
+  name      = "basic_5"
+  flavor_id = "6bec5005-f3ed-4ea2-bd4a-57c3dffd1a56"
 
   security_groups = ["allow_http"]
 
@@ -37,8 +37,8 @@ resource "openstack_compute_instance_v2" "basic_5" {
 }
 
 resource "openstack_networking_secgroup_v2" "allow_http" {
-  name        = "allow_http"
-  description = "Allow http inbound traffic"
+  name                 = "allow_http"
+  description          = "Allow http inbound traffic"
   delete_default_rules = true
 }
 

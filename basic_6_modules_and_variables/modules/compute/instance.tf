@@ -1,12 +1,21 @@
-resource "openstack_blockstorage_volume_v3" "basic_4" {
-  size     = 10
-  name     = "basic_4"
-  image_id = "11cfeaed-62a6-4a2c-8840-1e400f8cd772"
+data "openstack_images_image_v2" "ubuntu" {
+  name        = var.image_name #"Ubuntu 24.04"
+  most_recent = true
+
+  properties = {
+    key = "value"
+  }
 }
 
-resource "openstack_compute_instance_v2" "basic_4" {
-  name      = "basic_4"
-  flavor_id = "6bec5005-f3ed-4ea2-bd4a-57c3dffd1a56"
+resource "openstack_blockstorage_volume_v3" "basic_module" {
+  size     = 10
+  name     = var.name
+  image_id = data.openstack_images_image_v2.ubuntu.id
+}
+
+resource "openstack_compute_instance_v2" "basic_module" {
+  name      = var.name
+  flavor_id = var.flavour_id #"6bec5005-f3ed-4ea2-bd4a-57c3dffd1a56"
 
   security_groups = ["allow_http"]
 
@@ -20,7 +29,7 @@ resource "openstack_compute_instance_v2" "basic_4" {
   }
 
   block_device {
-    uuid                  = openstack_blockstorage_volume_v3.basic_4.id
+    uuid                  = openstack_blockstorage_volume_v3.basic_module.id
     source_type           = "volume"
     destination_type      = "volume"
     delete_on_termination = true
@@ -28,8 +37,8 @@ resource "openstack_compute_instance_v2" "basic_4" {
 }
 
 resource "openstack_networking_secgroup_v2" "allow_http" {
-  name                 = "allow_http"
-  description          = "Allow http inbound traffic"
+  name                 = var.name
+  description          = "Allow http inbound traffic to ${var.name}"
   delete_default_rules = true
 }
 
