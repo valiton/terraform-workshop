@@ -21,7 +21,7 @@ resource "openstack_compute_instance_v2" "basic_module" {
 
   security_groups = var.security_groups
 
-    user_data       = <<EOF
+  user_data = <<EOF
 #!/bin/bash
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
   apt update -y
