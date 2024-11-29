@@ -1,12 +1,14 @@
-provider "aws" {
-  region = "eu-central-1"
-}
-
-resource "aws_instance" "web" {
-  ami           = "ami-0c115dbd34c69a004"
-  instance_type = "t3.micro"
-
-  tags = {
-    Name = "Hello World"
+terraform {
+required_version = ">= 0.14.0"
+  required_providers {
+    openstack = {
+      source  = "terraform-provider-openstack/openstack"
+      version = "~> 1.53.0"
+    }
   }
 }
+
+provider "openstack" {
+}
+
+
