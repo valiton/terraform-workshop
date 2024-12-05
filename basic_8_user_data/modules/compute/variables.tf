@@ -3,10 +3,10 @@ variable "name" {
   description = "The Name tag for the comute instance"
 }
 
-variable "flavour_id" {
+variable "flavor_name" {
   type        = string
   description = "The flavour to use with the compute instance"
-  default     = "77817206-3c5a-4e22-884d-fe4034aed917" #BWS-C1-1-2
+  default     = "BWS-C1-1-2" #BWS-C1-1-2
 }
 
 variable "security_groups" {

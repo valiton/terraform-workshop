@@ -14,8 +14,8 @@ resource "openstack_blockstorage_volume_v3" "basic_module" {
 }
 
 resource "openstack_compute_instance_v2" "basic_module" {
-  name      = var.name
-  flavor_id = var.flavour_id
+  name        = var.name
+  flavor_name = var.flavor_name
 
   security_groups = ["allow_http"]
 

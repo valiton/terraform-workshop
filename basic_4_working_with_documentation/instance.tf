@@ -5,8 +5,8 @@ resource "openstack_blockstorage_volume_v3" "basic_4" {
 }
 
 resource "openstack_compute_instance_v2" "basic_4" {
-  name      = "basic_4"
-  flavor_id = "6bec5005-f3ed-4ea2-bd4a-57c3dffd1a56"
+  name        = "basic_4"
+  flavor_name = "BWS-C1-1-2"
 
   security_groups = ["allow_http"]
 

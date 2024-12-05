@@ -8,9 +8,9 @@ data "openstack_images_image_v2" "ubuntu" {
 }
 
 resource "openstack_compute_instance_v2" "basic_module" {
-  for_each  = var.names
-  name      = each.value
-  flavor_id = var.flavour_id
+  for_each    = var.names
+  name        = each.value
+  flavor_name = var.flavor_name
 
   security_groups = var.security_groups
 
