@@ -1,12 +1,8 @@
-provider "aws" {
-  region = "eu-central-1"
-}
+module "my_instance" {
+  source = "./modules/compute"
 
-module "my_instances" {
-  source = "./modules/ec2"
-
-  names           = ["Instance-1", "Instance-2"]
-  instance_type   = "t3.micro"
+  names           = ["basic_module_9_1", "basic_module_9_2"]
+  flavor_name     = "BWS-C1-1-2"
   security_groups = [module.http_security_group.security_group_name]
 }
 
@@ -17,3 +13,4 @@ module "http_security_group" {
   from_port = 80
   to_port   = 80
 }
+

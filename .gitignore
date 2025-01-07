@@ -1,2 +1,8 @@
 .terraform*
 terraform.tfstate*
+
+*openrc.sh
+
+.terraform
+.DS_Store
+cloud.conf

@@ -1,3 +1,3 @@
 output "security_group_name" {
-  value = aws_security_group.group.name
+  value = openstack_networking_secgroup_v2.allow_http.name
 }
