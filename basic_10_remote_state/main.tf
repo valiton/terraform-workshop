@@ -17,8 +17,8 @@ module "http_security_group" {
 # We can use the Openstack Object store (Ceph S3 compatible object storage) to store the terraform state. For that to work you have to
 # create the container / bucket manually either in the web gui or with the openstack cli. You also have to create openstack ec2 credentials
 
-# 1. openstack container create <bucket-name>
-# 2. openstack ec2 credentials create
+# 1. via UI see screenshot remote_state_bucket_bws.png or via cli  $ openstack container create <bucket-name>
+# 2. $ openstack ec2 credentials create # Can this also be done in the UI?
 # 3. use  the output credentials of 2. in you terragform init command
 # terraform init -backend-config="access_key=< output access >" -backend-config="secret_key=<output secret>"
 
