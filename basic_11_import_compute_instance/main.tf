@@ -1,7 +1,7 @@
 module "my_instance" {
   source = "./modules/compute"
 
-  names           = ["basic_module_10_1", "basic_module_10_2"]
+  names           = ["basic_module_11_1", "basic_module_11_2"]
   flavor_name     = "BWS-C1-1-2"
   security_groups = [module.http_security_group.security_group_name]
 }
@@ -12,6 +12,29 @@ module "http_security_group" {
   name      = "http_access"
   from_port = 80
   to_port   = 80
+}
+
+
+
+// Can be imported with "terraform import openstack_compute_instance_v2.legacy xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx"
+resource "openstack_compute_instance_v2" "legacy" {
+  name            = "imported_basic_11"
+  flavor_name     = "BWS-T1-2-2"
+  security_groups = ["default"]
+
+  key_pair = "terraform_ws"
+
+  block_device {
+    uuid                  = "508c8c73-dd30-49fd-9679-c57365a699d1"
+    source_type           = "image"
+    volume_size           = 10
+    destination_type      = "volume"
+    delete_on_termination = true
+  }
+
+  network {
+    name = "Public1"
+  }
 }
 
 # We can use the Openstack Object store (Ceph S3 compatible object storage) to store the terraform state. For that to work you have to

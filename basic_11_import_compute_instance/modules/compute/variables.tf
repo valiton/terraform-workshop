@@ -1,13 +1,13 @@
 variable "names" {
   type        = set(string)
-  description = "The Name tag for the EC2 instance"
+  description = "The Name  for the compute instance"
   default     = null
 }
 
-variable "instance_type" {
+variable "flavor_name" {
   type        = string
-  description = "The instance type to use with the EC2 instance"
-  default     = "t3.nano"
+  description = "The flavour to use with the compute instance"
+  default     = "BWS-C1-1-2" #BWS-C1-1-2
 }
 
 variable "security_groups" {
@@ -15,3 +15,4 @@ variable "security_groups" {
   description = "Names of security groups to attach to this instance"
   default     = null
 }
+
