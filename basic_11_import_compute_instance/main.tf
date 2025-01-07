@@ -15,7 +15,7 @@ module "http_security_group" {
 }
 
 
-
+//Create a compute instance manually in the UI. See screenshots.
 // Can be imported with "terraform import openstack_compute_instance_v2.legacy xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx"
 resource "openstack_compute_instance_v2" "legacy" {
   name            = "imported_basic_11"
